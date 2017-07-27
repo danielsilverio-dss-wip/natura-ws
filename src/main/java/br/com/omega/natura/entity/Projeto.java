@@ -14,7 +14,7 @@ public class Projeto {
 	@Id
 	@Column(name="id_projeto")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	@Column(name="nm_projeto")
 	private String nome;
 	@Column(name="ds_descricao")
@@ -22,18 +22,18 @@ public class Projeto {
 	
 	public Projeto(){}
 	
-	public Projeto(int id, String nome, String descricao) {
+	public Projeto(long id, String nome, String descricao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
