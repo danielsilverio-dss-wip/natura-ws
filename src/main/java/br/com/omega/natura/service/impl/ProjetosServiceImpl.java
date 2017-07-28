@@ -13,7 +13,7 @@ import br.com.omega.natura.service.ProjetosService;
 
 @Component
 public class ProjetosServiceImpl implements ProjetosService{
-
+	
 	@Autowired
 	private ProjetosRepository repository;
 	
@@ -32,6 +32,4 @@ public class ProjetosServiceImpl implements ProjetosService{
 		return Lists.newArrayList(repository.findAll());
 	}
 
-	
-	
 }
