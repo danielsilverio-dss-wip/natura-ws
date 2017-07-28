@@ -8,14 +8,14 @@ import org.springframework.stereotype.Component;
 import com.google.common.collect.Lists;
 
 import br.com.omega.natura.entity.Projeto;
-import br.com.omega.natura.repository.ProjetoRepository;
-import br.com.omega.natura.service.ProjetoService;
+import br.com.omega.natura.repository.ProjetosRepository;
+import br.com.omega.natura.service.ProjetosService;
 
 @Component
-public class ProjetoServiceImpl implements ProjetoService{
+public class ProjetosServiceImpl implements ProjetosService{
 
 	@Autowired
-	private ProjetoRepository repository;
+	private ProjetosRepository repository;
 	
 	@Override
 	public void save(Projeto projeto) {

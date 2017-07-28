@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: natura-ws
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: logonrm
+Built-By: rm76747
 Implementation-Vendor-Id: br.com.omega.natura
 Build-Jdk: 1.8.0_111
 Implementation-URL: http://projects.spring.io/spring-boot/natura-ws/

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import br.com.omega.natura.entity.Projeto;
 
 @Service
-public interface ProjetoService {
+public interface ProjetosService {
 	
 	public void save(Projeto projeto);
 	public Projeto findOne(long id);

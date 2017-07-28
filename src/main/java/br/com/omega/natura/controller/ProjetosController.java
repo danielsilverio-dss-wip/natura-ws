@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.omega.natura.entity.Projeto;
-import br.com.omega.natura.service.ProjetoService;
+import br.com.omega.natura.service.ProjetosService;
 
 @RestController
 @RequestMapping("/projeto")
 public class ProjetosController{
 	
 	@Autowired
-	private ProjetoService service;
+	private ProjetosService service;
 	
 	@PostMapping
 	public void save(@RequestBody Projeto projeto){

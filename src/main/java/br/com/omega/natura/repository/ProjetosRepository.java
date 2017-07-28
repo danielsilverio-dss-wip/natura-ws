@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.com.omega.natura.entity.Projeto;
 
-public interface ProjetoRepository extends CrudRepository<Projeto, Long>{
+public interface ProjetosRepository extends CrudRepository<Projeto, Long>{
 
 }

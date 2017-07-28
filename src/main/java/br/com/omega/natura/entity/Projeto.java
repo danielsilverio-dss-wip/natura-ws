@@ -1,10 +1,13 @@
 package br.com.omega.natura.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +22,9 @@ public class Projeto {
 	private String nome;
 	@Column(name="ds_descricao")
 	private String descricao;
+	
+	@OneToMany(mappedBy="projeto")
+	private List<ProdutosPorProjeto> produtosPorProjeto;
 	
 	public Projeto(){}
 	
