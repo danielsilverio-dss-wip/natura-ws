@@ -1,8 +1,14 @@
 package br.com.omega.natura.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,16 +20,23 @@ public class Produto {
 	private long id;
 	@Column(name="nm_produto")
 	private String nome;
-	@Column(name="vl_preco")
-	private double preco;
+	@ManyToOne
+	@JoinColumn(name="cd_categoria")
+	private Categoria categoria;
+	@ManyToMany
+	@JoinTable(name="tb_produto_empresa",
+			joinColumns=@JoinColumn(name="id_produto"),
+			inverseJoinColumns=@JoinColumn(name="id_empresa"))
+	private List<Empresa> empresas;
 	
-	public Produto(){};
-	
-	public Produto(long id, String nome, double preco) {
+	public Produto(){}
+
+	public Produto(long id, String nome, Categoria categoria, List<Empresa> empresas) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.preco = preco;
+		this.categoria = categoria;
+		this.empresas = empresas;
 	}
 
 	public long getId() {
@@ -42,15 +55,20 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public double getPreco() {
-		return preco;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
-	
-	
-	
 
+	public List<Empresa> getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(List<Empresa> empresas) {
+		this.empresas = empresas;
+	};
+		
 }
