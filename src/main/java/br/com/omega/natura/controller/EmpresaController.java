@@ -10,29 +10,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.omega.natura.entity.Ong;
-import br.com.omega.natura.service.OngsService;
+import br.com.omega.natura.entity.Empresa;
+import br.com.omega.natura.service.EmpresaService;
 
 @RestController
-@RequestMapping("/ong")
-public class OngController {
-
+@RequestMapping("/empresa")
+public class EmpresaController {
+	
 	@Autowired
-	private OngsService service;
-
+	private EmpresaService service;
+	
 	@GetMapping
-	public List<Ong> findAll(){
+	private List<Empresa> findAll(){
 		return service.findAll();
 	}
 	
 	@PostMapping
-	public void save(@RequestBody Ong ong){
-		service.save(ong);
+	private void save(@RequestBody Empresa empresa){
+		service.save(empresa);
 	}
-
+	
 	@GetMapping("/{id}")
-	public Ong findOne(@PathVariable(name="id")long id){
-		return service.findOne(id);	
+	private Empresa findOne(@PathVariable(name="id") long id){
+		return service.findOne(id);
 	}
 
 }

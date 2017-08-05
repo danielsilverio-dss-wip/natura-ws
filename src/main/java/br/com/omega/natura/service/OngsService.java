@@ -12,6 +12,8 @@ public interface OngsService {
 	public void save(Ong ong);
 	public Ong findOne(long id);
 //  public List<Projeto>findAll();
+	public List<Ong> findAll();
+	public boolean login(String email, String senha);
 	
 
 }

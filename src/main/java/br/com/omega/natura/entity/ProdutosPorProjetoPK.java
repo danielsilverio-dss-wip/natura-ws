@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class ProdutosPorProjetoPK implements Serializable{
 	
-	private int produto;
-	private int projeto;
+	private long produto;
+	private long projeto;
 	
 	public ProdutosPorProjetoPK() {
 		super();
@@ -17,20 +17,22 @@ public class ProdutosPorProjetoPK implements Serializable{
 		this.projeto = projeto;
 	}
 
-	public int getProduto() {
+	public long getProduto() {
 		return produto;
 	}
 
-	public void setProduto(int produto) {
+	public void setProduto(long produto) {
 		this.produto = produto;
 	}
 
-	public int getProjeto() {
+	public long getProjeto() {
 		return projeto;
 	}
 
-	public void setProjeto(int projeto) {
+	public void setProjeto(long projeto) {
 		this.projeto = projeto;
 	}
+
+	
 	
 }

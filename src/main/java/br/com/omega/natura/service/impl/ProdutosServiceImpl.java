@@ -3,6 +3,7 @@ package br.com.omega.natura.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Lists;
 
@@ -10,6 +11,7 @@ import br.com.omega.natura.entity.Produto;
 import br.com.omega.natura.repository.ProdutoRepository;
 import br.com.omega.natura.service.ProdutosService;
 
+@Component
 public class ProdutosServiceImpl implements ProdutosService{
 
 	@Autowired

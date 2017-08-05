@@ -14,7 +14,7 @@ public class Categoria {
 	
 	@Id
 	@Column(name="id_categoria")
-	private int id;
+	private long id;
 	@Column(name="nm_categoria")
 	private String nome;
 	@OneToMany(mappedBy="categoria")
@@ -22,18 +22,27 @@ public class Categoria {
 	
 	public Categoria(){};
 	
-	public Categoria(int id, String nome) {
+	public Categoria(long id, String nome, List<Produto> produtos) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.produtos = produtos;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 	public String getNome() {
