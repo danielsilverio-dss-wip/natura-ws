@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.google.common.collect.Lists;
+
 import br.com.omega.natura.entity.Doador;
 import br.com.omega.natura.repository.DoadorRepository;
 import br.com.omega.natura.service.DoadorService;
@@ -22,14 +24,12 @@ public class DoadorServiceImpl implements DoadorService{
 
 	@Override
 	public Doador findOne(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override
 	public List<Doador> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return Lists.newArrayList(repository.findAll());
 	}
 
 }
