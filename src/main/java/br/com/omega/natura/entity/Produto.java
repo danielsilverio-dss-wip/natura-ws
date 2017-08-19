@@ -20,9 +20,11 @@ public class Produto {
 	private long id;
 	@Column(name="nm_produto")
 	private String nome;
+	
 	@ManyToOne
-	@JoinColumn(name="cd_categoria")
+	@JoinColumn(name="id_categoria")
 	private Categoria categoria;
+	
 	@ManyToMany
 	@JoinTable(name="tb_produto_empresa",
 			joinColumns=@JoinColumn(name="id_produto"),

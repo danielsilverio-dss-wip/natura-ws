@@ -8,64 +8,48 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_projeto")
-public class Projeto {
+@Table(name="tb_doador")
+public class Doador {
 	
 	@Id
-	@Column(name="id_projeto")
+	@Column(name="id_doador")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@Column(name="nm_projeto")
+	@Column(name="nm_doador")
 	private String nome;
-	@Column(name="ds_descricao")
-	private String descricao;
-	
-	@ManyToOne
-	@JoinColumn(name="id_ong")
-	private Ong ong;
-	
-	@OneToMany(mappedBy="projeto")
-	private List<ProdutosPorProjeto> produtosPorProjeto;
-	
-	@OneToMany(mappedBy="projeto")
+	// private int pontos; -- a fazer
+	@OneToMany(mappedBy="doador")
 	private List<Compra> compras;
 	
-	public Projeto(){}
+	public Doador(){}
 	
-	public Projeto(long id, String nome, String descricao) {
+	public Doador(long id, String nome, List<Compra> compras) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.descricao = descricao;
+		this.compras = compras;
 	}
-
 	public long getId() {
 		return id;
 	}
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getDescricao() {
-		return descricao;
+	public List<Compra> getCompras() {
+		return compras;
 	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setCompras(List<Compra> compras) {
+		this.compras = compras;
 	}
 	
 	

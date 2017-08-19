@@ -24,18 +24,20 @@ public class ProdutosPorProjeto {
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Projeto projeto;
 	
-	@Column(name="vl_quantidade")
-	private int quantidade;
-
-	public ProdutosPorProjeto() {
-		super();
-	}
+	@Column(name="vl_quantidade_final")
+	private int quantidadeFinal;
 	
-	public ProdutosPorProjeto(Produto produto, Projeto projeto, int quantidade) {
+	@Column(name="vl_quantidade_arrecadada")
+	private int quantidadeArrecadada;
+
+	public ProdutosPorProjeto(){}
+	
+	public ProdutosPorProjeto(Produto produto, Projeto projeto, int quantidadeFinal, int quantidadeArrecadada) {
 		super();
 		this.produto = produto;
 		this.projeto = projeto;
-		this.quantidade = quantidade;
+		this.quantidadeFinal = quantidadeFinal;
+		this.quantidadeArrecadada = quantidadeArrecadada;
 	}
 
 	public Produto getProduto() {
@@ -54,12 +56,22 @@ public class ProdutosPorProjeto {
 		this.projeto = projeto;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
+	public int getQuantidadeFinal() {
+		return quantidadeFinal;
 	}
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+	public void setQuantidadeFinal(int quantidadeFinal) {
+		this.quantidadeFinal = quantidadeFinal;
 	}
 
+	public int getQuantidadeArrecadada() {
+		return quantidadeArrecadada;
+	}
+
+	public void setQuantidadeArrecadada(int quantidadeArrecadada) {
+		this.quantidadeArrecadada = quantidadeArrecadada;
+	}
+	
+	
+	
 }
