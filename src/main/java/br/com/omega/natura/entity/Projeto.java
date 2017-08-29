@@ -31,7 +31,7 @@ public class Projeto {
 	@JoinColumn(name="id_ong")
 	private Ong ong;
 	
-	@OneToMany(mappedBy="projeto")
+	@OneToMany(mappedBy="projeto", cascade=CascadeType.PERSIST ,fetch=FetchType.EAGER)
 	private List<ProdutosPorProjeto> produtosPorProjeto;
 	
 	@OneToMany(mappedBy="projeto")
