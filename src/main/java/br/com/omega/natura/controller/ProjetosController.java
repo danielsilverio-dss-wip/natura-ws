@@ -22,11 +22,6 @@ public class ProjetosController{
 	
 	@PostMapping
 	public void save(@RequestBody Projeto projeto){
-		
-		System.out.println("-------------save-------------");
-		System.out.println("nome: " + projeto.getNome());
-		System.out.println("descricao: " + projeto.getDescricao());
-		
 		service.save(projeto);
 	}
 

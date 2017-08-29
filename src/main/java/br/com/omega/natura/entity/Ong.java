@@ -34,8 +34,9 @@ public class Ong {
 	
 	public Ong(){}
 	
-	public Ong(String nome, String email, String telefone, String cnpj, byte[] logo) {
+	public Ong(long id, String nome, String email, String telefone, String cnpj, byte[] logo) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
