@@ -2,8 +2,10 @@ package br.com.omega.natura.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,11 +39,12 @@ public class Projeto {
 	
 	public Projeto(){}
 	
-	public Projeto(long id, String nome, String descricao) {
+	public Projeto(long id, String nome, String descricao, Ong ong) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
+		this.ong = ong;
 	}
 
 	public long getId() {
@@ -66,6 +69,14 @@ public class Projeto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Ong getOng() {
+		return ong;
+	}
+
+	public void setOng(Ong ong) {
+		this.ong = ong;
 	}
 	
 	
