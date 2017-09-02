@@ -21,8 +21,8 @@ public class ProjetosController{
 	private ProjetosService service;
 	
 	@PostMapping
-	public void save(@RequestBody Projeto projeto){
-		service.save(projeto);
+	public Projeto save(@RequestBody Projeto projeto){
+		return service.save(projeto);
 	}
 
 	@GetMapping("/{id}")

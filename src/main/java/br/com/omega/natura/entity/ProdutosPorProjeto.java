@@ -1,27 +1,31 @@
 package br.com.omega.natura.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tb_produto_projeto")
-@IdClass(ProdutosPorProjetoPK.class)
 public class ProdutosPorProjeto {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id_produto_projeto")
+	private long id;
+	
+	@ManyToOne
 	@JoinColumn(name="id_produto")
-	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Produto produto;
 	
-	@Id
+	@ManyToOne
 	@JoinColumn(name="id_projeto")
-	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Projeto projeto;
 	
 	@Column(name="vl_quantidade_final")

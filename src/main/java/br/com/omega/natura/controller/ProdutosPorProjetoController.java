@@ -10,31 +10,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import br.com.omega.natura.entity.Produto;
-import br.com.omega.natura.service.ProdutosService;
+import br.com.omega.natura.entity.ProdutosPorProjeto;
+import br.com.omega.natura.service.ProdutosPorProjetoService;
 
 @RestController
-@RequestMapping("/produto")
-public class ProdutosController {
+@RequestMapping("/produtosPorProjeto")
+public class ProdutosPorProjetoController {
 	
 	@Autowired
-	private ProdutosService service;
-
+	private ProdutosPorProjetoService service;
+	
+	@PostMapping
+	public void save(@RequestBody ProdutosPorProjeto produtosPorProjeto){
+		service.save(produtosPorProjeto);
+	}
+	
 	@GetMapping
-	public List<Produto> findAll(){
+	public List<ProdutosPorProjeto> findAll(){
 		return service.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Produto findOne(@PathVariable(name="id") long id){
+	public ProdutosPorProjeto findOne(@PathVariable(name="id") long id){
 		return service.findOne(id);
 	}
 	
-	@PostMapping
-	public void save(@RequestBody Produto produto){
-		service.save(produto);
-	}
-		
+	
+
 }

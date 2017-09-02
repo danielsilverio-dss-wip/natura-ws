@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tb_projeto")
 public class Projeto {
@@ -31,23 +33,22 @@ public class Projeto {
 	@JoinColumn(name="id_ong")
 	private Ong ong;
 	
-	@OneToMany(mappedBy="projeto", cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@JsonIgnore
+	@OneToMany(mappedBy="projeto", fetch=FetchType.EAGER)
 	private List<ProdutosPorProjeto> produtosPorProjeto;
-	
+	/*
 	@OneToMany(mappedBy="projeto")
 	private List<Compra> compras;
-	
+	*/
 	public Projeto(){}
 
-	public Projeto(long id, String nome, String descricao, Ong ong, List<ProdutosPorProjeto> produtosPorProjeto,
-			List<Compra> compras) {
+	public Projeto(long id, String nome, String descricao, Ong ong, List<ProdutosPorProjeto> produtosPorProjeto) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.ong = ong;
 		this.produtosPorProjeto = produtosPorProjeto;
-		this.compras = compras;
 	}
 
 	public long getId() {
@@ -88,14 +89,6 @@ public class Projeto {
 
 	public void setProdutosPorProjeto(List<ProdutosPorProjeto> produtosPorProjeto) {
 		this.produtosPorProjeto = produtosPorProjeto;
-	}
-
-	public List<Compra> getCompras() {
-		return compras;
-	}
-
-	public void setCompras(List<Compra> compras) {
-		this.compras = compras;
 	}
 
 }

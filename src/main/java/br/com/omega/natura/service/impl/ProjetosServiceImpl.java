@@ -18,8 +18,8 @@ public class ProjetosServiceImpl implements ProjetosService{
 	private ProjetosRepository repository;
 	
 	@Override
-	public void save(Projeto projeto) {
-		repository.save(projeto);
+	public Projeto save(Projeto projeto) {
+		return repository.save(projeto);
 	}
 
 	@Override
