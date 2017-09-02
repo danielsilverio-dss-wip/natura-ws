@@ -1,11 +1,8 @@
 package br.com.omega.natura.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,9 +16,10 @@ public class Empresa {
 	private String nome;
 	@Column(name="ds_cnpj")
 	private String cnpj;
+	/*
 	@ManyToMany(mappedBy="empresas")
 	private List<Produto> produtos;
-	
+	*/
 	public Empresa(){};
 	
 	public Empresa(long id, String nome, String cnpj) {

@@ -2,6 +2,7 @@ package br.com.omega.natura.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,32 +17,29 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tb_produto")
 public class Produto {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_produto")
 	private long id;
 	@Column(name="nm_produto")
 	private String nome;
-	
+
 	@ManyToOne
 	@JoinColumn(name="id_categoria")
 	private Categoria categoria;
-	
-	@ManyToMany
+
+	@ManyToMany(cascade=CascadeType.PERSIST)
 	@JoinTable(name="tb_produto_empresa",
 			joinColumns=@JoinColumn(name="id_produto"),
 			inverseJoinColumns=@JoinColumn(name="id_empresa"))
 	private List<Empresa> empresas;
-	
+
 	public Produto(){}
 
-	public Produto(long id, String nome, Categoria categoria, List<Empresa> empresas) {
+	public Produto(long id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.categoria = categoria;
-		this.empresas = empresas;
 	}
 
 	public long getId() {
@@ -60,20 +58,5 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public List<Empresa> getEmpresas() {
-		return empresas;
-	}
-
-	public void setEmpresas(List<Empresa> empresas) {
-		this.empresas = empresas;
-	};
-		
+	
 }

@@ -97,7 +97,5 @@ public class Projeto {
 	public void setCompras(List<Compra> compras) {
 		this.compras = compras;
 	}
-	
-		
 
 }
