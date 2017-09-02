@@ -2,8 +2,10 @@ package br.com.omega.natura.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,23 +27,27 @@ public class Projeto {
 	@Column(name="ds_descricao")
 	private String descricao;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_ong")
 	private Ong ong;
 	
-	@OneToMany(mappedBy="projeto")
+	@OneToMany(mappedBy="projeto", cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	private List<ProdutosPorProjeto> produtosPorProjeto;
 	
 	@OneToMany(mappedBy="projeto")
 	private List<Compra> compras;
 	
 	public Projeto(){}
-	
-	public Projeto(long id, String nome, String descricao) {
+
+	public Projeto(long id, String nome, String descricao, Ong ong, List<ProdutosPorProjeto> produtosPorProjeto,
+			List<Compra> compras) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
+		this.ong = ong;
+		this.produtosPorProjeto = produtosPorProjeto;
+		this.compras = compras;
 	}
 
 	public long getId() {
@@ -67,7 +73,31 @@ public class Projeto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	public Ong getOng() {
+		return ong;
+	}
+
+	public void setOng(Ong ong) {
+		this.ong = ong;
+	}
+
+	public List<ProdutosPorProjeto> getProdutosPorProjeto() {
+		return produtosPorProjeto;
+	}
+
+	public void setProdutosPorProjeto(List<ProdutosPorProjeto> produtosPorProjeto) {
+		this.produtosPorProjeto = produtosPorProjeto;
+	}
+
+	public List<Compra> getCompras() {
+		return compras;
+	}
+
+	public void setCompras(List<Compra> compras) {
+		this.compras = compras;
+	}
 	
-	
+		
 
 }
