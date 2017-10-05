@@ -28,7 +28,8 @@ public class Projeto {
 	private String nome;
 	@Column(name="ds_descricao")
 	private String descricao;
-	
+	@Column(name="ds_imagem")
+	private byte[] imagem;
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_ong")
 	private Ong ong;
@@ -42,11 +43,12 @@ public class Projeto {
 	*/
 	public Projeto(){}
 
-	public Projeto(long id, String nome, String descricao, Ong ong, List<ProdutosPorProjeto> produtosPorProjeto) {
+	public Projeto(long id, String nome, String descricao, byte[] imagem, Ong ong, List<ProdutosPorProjeto> produtosPorProjeto) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
+		this.imagem = imagem;
 		this.ong = ong;
 		this.produtosPorProjeto = produtosPorProjeto;
 	}
@@ -73,6 +75,14 @@ public class Projeto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public byte[] getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
 	}
 
 	public Ong getOng() {
