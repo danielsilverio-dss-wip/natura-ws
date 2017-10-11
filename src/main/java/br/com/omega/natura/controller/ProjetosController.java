@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.omega.natura.entity.Produto;
 import br.com.omega.natura.entity.Projeto;
 import br.com.omega.natura.service.ProjetosService;
 
@@ -34,6 +35,10 @@ public class ProjetosController{
 	public List<Projeto> findAll() {
 		return service.findAll();
 	}
-	
+
+	@GetMapping("busca/{id}")
+	public List<Projeto> findByOngId(@PathVariable(name="id") long id){
+		return service.findByOngId(id);
+	}
 
 }

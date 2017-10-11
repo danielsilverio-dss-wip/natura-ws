@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Lists;
 
+import br.com.omega.natura.entity.Produto;
 import br.com.omega.natura.entity.Projeto;
 import br.com.omega.natura.repository.ProjetosRepository;
 import br.com.omega.natura.service.ProjetosService;
@@ -30,6 +31,11 @@ public class ProjetosServiceImpl implements ProjetosService{
 	@Override
 	public List<Projeto> findAll() {
 		return Lists.newArrayList(repository.findAll());
+	}
+
+	@Override
+	public List<Projeto> findByOngId(long id) {
+		return repository.findByOngId(id);
 	}
 
 }
